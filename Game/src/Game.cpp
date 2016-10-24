@@ -21,7 +21,7 @@ char* fragmentShader = "#version 430 core \n " \
 " in vec2 uv; \n" \
 " out vec4 outputColor; \n "\
 " uniform sampler2D textureSampler;\n" \
-" void main() {outputColor = vec4(uv, 1.0, 1.0);}";
+" void main() {outputColor = texture(textureSampler, uv);}";
 
 int main() {
 	using namespace engine;
@@ -76,7 +76,7 @@ int main() {
 	while (!window.shouldClose()) {
 		renderer.prepareRender();
 		shader.loadUniformMat4f("transform", identity);
-		renderer.renderMesh(mesh);
+		renderer.renderMesh(mesh, shader);
 		window.render();
 
 	}

@@ -58,6 +58,10 @@ namespace engine {
 			glUniformMatrix4fv(glGetUniformLocation(this->programID, name), 1, GL_FALSE, matrix.elements);
 		}
 
+		void Shader::loadUniformTexture(char* name, unsigned short bankID) {
+			glUniform1i(glGetUniformLocation(this->programID, name), bankID);
+		}
+
 		void Shader::bind() {
 			glUseProgram(this->programID);
 		}

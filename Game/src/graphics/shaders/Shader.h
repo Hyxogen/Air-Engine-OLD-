@@ -20,6 +20,8 @@ namespace engine { namespace graphics {
 
 			void loadUniformMat4f(char* name, math::Matrix4f matrix);
 
+			void loadUniformTexture(char* name, unsigned short bankIndex);
+
 			void bind();
 
 			void unBind();

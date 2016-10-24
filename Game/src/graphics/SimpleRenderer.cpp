@@ -7,13 +7,14 @@ namespace engine {
 
 		}
 
-		void SimpleRenderer::renderMesh(geometry::Mesh &mesh) {
+		void SimpleRenderer::renderMesh(geometry::Mesh &mesh, graphics::Shader shader) {
 			glBindVertexArray(mesh.getVaoID());
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.getIboID());
 			glEnableVertexAttribArray(0);
 			glEnableVertexAttribArray(1);
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, mesh.getTexture().getTextureID());
+			shader.loadUniformTexture("textureSampler", 0);
 			glDrawElements(GL_TRIANGLES, mesh.getIndicesCount(), GL_UNSIGNED_INT, 0);
 			glDisableVertexAttribArray(1);
 			glDisableVertexAttribArray(0);
