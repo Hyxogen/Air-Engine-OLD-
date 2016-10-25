@@ -10,7 +10,7 @@ namespace engine { namespace rendering {
 	public:
 		SimpleRenderer();
 
-		void renderMesh(geometry::Mesh &mesh, graphics::Shader shader);
+		void renderMesh(geometry::Mesh* mesh, graphics::Shader* shader);
 	
 		void prepareRender();
 	};

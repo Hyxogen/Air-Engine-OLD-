@@ -22,7 +22,7 @@ namespace engine { namespace graphics {
 			glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
 
 			glfwMakeContextCurrent(window);
-			glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+			glClearColor(0.0f, 1.0f, 1.0f, 1.0f);
 
 			glfwSwapInterval(1);
 			glfwShowWindow(window);

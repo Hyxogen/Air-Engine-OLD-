@@ -18,7 +18,7 @@ namespace engine { namespace graphics {
 
 			FIBITMAP* bitMap = FreeImage_Load(format, path);
 
-			BYTE* pixels = FreeImage_GetBits(bitMap);
+			const BYTE* pixels = FreeImage_GetBits(bitMap);
 
 			unsigned int bpp = FreeImage_GetBPP(bitMap);
 			GLsizei width = FreeImage_GetWidth(bitMap);
@@ -28,19 +28,20 @@ namespace engine { namespace graphics {
 			BYTE* result = new BYTE[size];
 			memcpy(result, pixels, size);
 
+			FreeImage_Unload(bitMap);
+
 			glGenTextures(1, &textureID);
 			glBindTexture(GL_TEXTURE_2D, textureID);
 
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, result);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, result);
 
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
 
 			glBindTexture(GL_TEXTURE_2D, 0);
 
-			FreeImage_Unload(bitMap);
 		}
 
 	Texture::~Texture() {
