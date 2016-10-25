@@ -7,51 +7,41 @@ namespace engine { namespace graphics {
 		printf("It is discouraged to use this constructor");
 	}
 
-	Texture::Texture(char* path) {
-		unsigned char header[54];
-		unsigned int dataPos;
-		unsigned int width, height;
-		unsigned int imageSize;
-		FILE* file;
+		Texture::Texture(char* path) {
+			FREE_IMAGE_FORMAT format = FreeImage_GetFileType(path);
+			if (format == FIF_UNKNOWN)
+				format = FreeImage_GetFIFFromFilename(path);
+			if (!FreeImage_FIFSupportsReading(format)) {
+				printf("The file format is not supported!");
+				return;
+			}
 
-		fopen_s(&file, path, "rb");
-		if (file == 0) {
-			std::cout << "File " << path << " could not be opened!" << std::endl;
-			return;
+			FIBITMAP* bitMap = FreeImage_Load(format, path);
+
+			BYTE* pixels = FreeImage_GetBits(bitMap);
+
+			unsigned int bpp = FreeImage_GetBPP(bitMap);
+			GLsizei width = FreeImage_GetWidth(bitMap);
+			GLsizei height = FreeImage_GetHeight(bitMap);
+			GLsizei size = width * height * (bpp / 8);
+
+			BYTE* result = new BYTE[size];
+			memcpy(result, pixels, size);
+
+			glGenTextures(1, &textureID);
+			glBindTexture(GL_TEXTURE_2D, textureID);
+
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, result);
+
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+			glBindTexture(GL_TEXTURE_2D, 0);
+
+			FreeImage_Unload(bitMap);
 		}
-
-		if (fread(header, 1, 54, file) != 54) {
-			std::cout << "Not a correct BMP file!" << std::endl;
-			return;
-		}
-
-		if (header[0] != 'B' || header[1] != 'M') {
-			std::cout << "Not a correct BMP file!" << std::endl;
-			return;
-		}
-
-
-		dataPos = *(int *)& (header[0x0A]);
-		imageSize = *(int *)& (header[0x22]);
-		width = *(int *)& (header[0x12]);
-		height = *(int *)& (header[0x16]);
-		
-		if (imageSize == 0)    imageSize = width*height * 3;
-		if (dataPos == 0)      dataPos = 54;
-
-		//data = (unsigned char*)malloc(width * height * sizeof(int));
-		data = new unsigned char[imageSize];
-
-		fread(data, width * height * sizeof(int), 1, file);
- 		fclose(file);
-		glGenTextures(1, &textureID);
-		glBindTexture(GL_TEXTURE_2D, textureID);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, data);
-
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-
-	}
 
 	Texture::~Texture() {
 		glDeleteTextures(1, &textureID);

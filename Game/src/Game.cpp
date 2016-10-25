@@ -60,7 +60,7 @@ int main() {
 	};
 
 	std::cout << vertices.size() << std::endl;
-	Texture texture("C:\\Users\\Daan\\Downloads\\Grass_Texture.bmp");
+	Texture texture("C:\\Users\\Daan\\Downloads\\grass.jpg");
 	Mesh mesh(vertices, uvs, indices, &texture);
 	Matrix4f projection = Matrix4f::orthographic(-2.0f, 2.0f, -1.0f, 1.0f, -1.0f, 1000.0f);
 	//Matrix4f projection = Matrix4f::perspective(650.0f / 350.0f, 90, 0.0f, 100.0f);
