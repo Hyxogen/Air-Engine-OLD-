@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Math.h"
+#include "Mathf.h"
 
 namespace engine {namespace math {
 
@@ -20,13 +20,27 @@ namespace engine {namespace math {
 
 		Vector2f(float x, float y);
 
-		Vector2f multiply(float scalar);
+		Vector2f multiply(float scalar) const;
 
-		Vector2f add(Vector2f other);
+		Vector2f add(Vector2f other) const;
 
-		Vector2f substract(Vector2f other);
+		Vector2f substract(Vector2f other) const;
 
-		float magnitute();
+		Vector2f clamp(float magnitude) const;
+
+		Vector2f normalize() const;
+
+		Vector2f invert() const;
+
+		float magnitude() const;
+
+		Vector2f operator-() const;
+
+		friend Vector2f operator+(const Vector2f& left, const Vector2f& right);
+
+		friend Vector2f operator-(const Vector2f& left, const Vector2f& right);
+
+		friend Vector2f operator*(const Vector2f& vector, float scalar);
 	};
 
 }}

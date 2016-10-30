@@ -25,6 +25,8 @@ namespace engine { namespace graphics {
 			GLsizei height = FreeImage_GetHeight(bitMap);
 			GLsizei size = width * height * (bpp / 8);
 
+			std::cout << "Bit per pixel " << bpp << std::endl;
+
 			BYTE* result = new BYTE[size];
 			memcpy(result, pixels, size);
 
@@ -33,7 +35,7 @@ namespace engine { namespace graphics {
 			glGenTextures(1, &textureID);
 			glBindTexture(GL_TEXTURE_2D, textureID);
 
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, result);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, (bpp / 8 == GL_BGR) ? GL_BGR : GL_RGB, GL_UNSIGNED_BYTE, result);
 
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);

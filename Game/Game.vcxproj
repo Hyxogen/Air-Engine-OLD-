@@ -122,6 +122,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\graphics\Camera.cpp" />
+    <ClCompile Include="src\graphics\materials\Material.cpp" />
+    <ClCompile Include="src\graphics\materials\SimpleMaterial.cpp" />
     <ClCompile Include="src\math\Matrix4f.cpp" />
     <ClCompile Include="src\geometry\Mesh.cpp" />
     <ClCompile Include="src\graphics\shaders\Shader.cpp" />
@@ -133,6 +136,9 @@
     <ClCompile Include="src\graphics\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\graphics\Camera.h" />
+    <ClInclude Include="src\graphics\materials\Material.h" />
+    <ClInclude Include="src\graphics\materials\SimpleMaterial.h" />
     <ClInclude Include="src\graphics\Texture.h" />
     <ClInclude Include="src\math\Math.h" />
     <ClInclude Include="src\math\Mathf.h" />

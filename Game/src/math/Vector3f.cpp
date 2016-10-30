@@ -26,11 +26,12 @@ namespace engine { namespace math {
 		this->z = z;
 	}
 
-	Vector3f Vector3f::multiply(float scalar) {
-		this->x *= scalar;
-		this->y *= scalar;
-		this->z *= scalar;
-		return *this;
+	Vector3f Vector3f::multiply(float scalar) const {
+		Vector3f out;
+		out.x = this->x * scalar;
+		out.y = this->y * scalar;
+		out.z = this->z * scalar;
+		return out;
 	}
 
 	Vector3f Vector3f::add(const Vector3f& other) const {
@@ -48,5 +49,46 @@ namespace engine { namespace math {
 		out.y = this->y - other.y;
 		out.z = this->z - other.z;
 		return out;
+	}
+
+	Vector3f Vector3f::clamp(float magnitude) const {
+		Vector3f out;
+		out.x = Clamp(this->x, -magnitude, magnitude);
+		out.y = Clamp(this->y, -magnitude, magnitude);
+		out.z = Clamp(this->z, -magnitude, magnitude);
+		return out;
+	}
+
+	Vector3f Vector3f::normalize() const {
+		return clamp(1.0f);
+	}
+
+	Vector3f Vector3f::invert() const {
+		Vector3f out;
+		out.x = -this->x;
+		out.y = -this->y;
+		out.z = -this->z;
+		return out;
+	}
+
+	float Vector3f::magnitude() const {
+		float length = ((pow(this->x, 2.0f) + pow(this->z, 2.0f)));
+		return (sqrt(length + (pow(this->y, 2.0f))));
+	}
+
+	Vector3f Vector3f::operator-() const {
+		return invert();
+	}
+	
+	Vector3f operator+(const Vector3f& left, const Vector3f& right) {
+		return left.add(right);
+	}
+
+	Vector3f operator-(const Vector3f& left, const Vector3f& right) {
+		return left.subtract(right);
+	}
+
+	Vector3f operator*(const Vector3f& vector, float scalar) {
+		return vector.multiply(scalar);
 	}
 }}

@@ -15,7 +15,8 @@ namespace engine {
 			glEnableVertexAttribArray(1);
 			
 			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE_2D, mesh->getTexture().getTextureID());
+			
+			glBindTexture(GL_TEXTURE_2D, mesh->getTexture()->getTextureID());
 			
 			shader->loadUniformTexture("textureSampler", 0);
 			

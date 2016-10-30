@@ -1,9 +1,2 @@
-﻿  Window.cpp
-g:\projects\c++\game\game\src\graphics\window.cpp(42): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-  SimpleRenderer.cpp
-g:\projects\c++\game\game\src\math\matrix4f.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Game.cpp
-g:\projects\c++\game\game\src\math\matrix4f.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Generating Code...
-  Game.vcxproj -> G:\Projects\C++\Game\Debug\Game.exe
-  Game.vcxproj -> G:\Projects\C++\Game\Debug\Game.pdb (Partial PDB)
+﻿  Vector2f.cpp
+g:\projects\c++\game\game\src\math\vector2f.cpp(4): fatal error C1189: #error:  Define the magnitude function

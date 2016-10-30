@@ -33,7 +33,7 @@ int main() {
 	Window window("Engine!", 650, 350);
 	
 	glewInit();
-
+	
 	std::vector<GLfloat> vertices = {
 		-0.5f, 0.5f, 0.0f, 
 		-0.5f, -0.5f, 0.0f,
@@ -56,7 +56,6 @@ int main() {
 	Texture* texture = new Texture("res/grass.jpg");
 	Mesh* mesh = new Mesh(vertices, uvs, indices, texture);
 	SimpleRenderer* renderer = new SimpleRenderer();
-
 
 	shader->bind();
 

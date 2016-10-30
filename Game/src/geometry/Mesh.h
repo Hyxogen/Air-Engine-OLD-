@@ -25,7 +25,7 @@ namespace engine { namespace geometry {
 
 		inline GLuint getVaoID() const { return vaoID; }
 		inline GLuint getIboID() const { return iboID; }
-		inline graphics::Texture getTexture() const { return *texture; }
+		inline graphics::Texture* getTexture() const { return texture; }
 		inline unsigned int getVertexCount() const { return vertexCount; }
 		inline unsigned int getIndicesCount() const { return indicesCount; }
 	private:

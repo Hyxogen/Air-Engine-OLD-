@@ -41,6 +41,9 @@
     </ClCompile>
     <ClCompile Include="src\math\Vector2f.cpp" />
     <ClCompile Include="src\graphics\Texture.cpp" />
+    <ClCompile Include="src\graphics\materials\Material.cpp" />
+    <ClCompile Include="src\graphics\materials\SimpleMaterial.cpp" />
+    <ClCompile Include="src\graphics\Camera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\math\Math.h">
@@ -72,5 +75,8 @@
     </ClInclude>
     <ClInclude Include="src\math\Vector2f.h" />
     <ClInclude Include="src\graphics\Texture.h" />
+    <ClInclude Include="src\graphics\materials\Material.h" />
+    <ClInclude Include="src\graphics\materials\SimpleMaterial.h" />
+    <ClInclude Include="src\graphics\Camera.h" />
   </ItemGroup>
 </Project>
