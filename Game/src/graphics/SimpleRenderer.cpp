@@ -7,6 +7,7 @@ namespace engine {
 
 		}
 
+#ifdef OBSOLETE
 		void SimpleRenderer::renderMesh(geometry::Mesh* mesh, graphics::Shader* shader) {
 			glBindVertexArray(mesh->getVaoID());
 
@@ -26,6 +27,25 @@ namespace engine {
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 			glBindVertexArray(0);
 		}
+#else
+		void SimpleRenderer::renderMesh(geometry::Mesh* mesh, graphics::Material* material) {
+			material->enable();
+			glBindVertexArray(mesh->getVaoID());
+
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh->getIboID());
+			glEnableVertexAttribArray(0);
+			glEnableVertexAttribArray(1);
+
+			material->prepareShader(mesh);
+
+			glDrawElements(GL_TRIANGLES, mesh->getIndicesCount(), GL_UNSIGNED_INT, 0);
+			glDisableVertexAttribArray(1);
+			glDisableVertexAttribArray(0);
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+			glBindVertexArray(0);
+			material->disable();
+		}
+#endif
 
 		void SimpleRenderer::prepareRender() {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

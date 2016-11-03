@@ -7,6 +7,7 @@
 #include "graphics\SimpleRenderer.h"
 #include "graphics\shaders\Shader.h"
 #include "math\Math.h"
+#include "graphics\materials\SimpleMaterial.h"
 
 char* vertexShader = "#version 430 core\n" \
 "layout (location = 0) in vec3 vertexPosition;\n" \
@@ -53,15 +54,16 @@ int main() {
 	};
 
 	Shader* shader = new Shader(vertexShader, fragmentShader);
-	Texture* texture = new Texture("res/grass.jpg");
+	Texture* texture = new Texture(	"res/grass.jpg");
 	Mesh* mesh = new Mesh(vertices, uvs, indices, texture);
 	SimpleRenderer* renderer = new SimpleRenderer();
+	SimpleMaterial* material = new SimpleMaterial(shader, texture);
 
 	shader->bind();
 
 	while (!window.shouldClose()) {
 		renderer->prepareRender();
-		renderer->renderMesh(mesh, shader);
+		renderer->renderMesh(mesh, material);
 		window.render();
 
 	}
@@ -70,5 +72,6 @@ int main() {
 	delete texture;
 	delete mesh;
 	delete renderer;
+	delete material;
 	return 0;
 }

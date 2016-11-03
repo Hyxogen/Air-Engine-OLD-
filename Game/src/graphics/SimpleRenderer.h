@@ -1,7 +1,7 @@
 #pragma once
 
 #include "..\geometry\Mesh.h"
-#include "shaders\Shader.h"
+#include "materials/Material.h"
 
 namespace engine { namespace rendering {
 
@@ -10,7 +10,7 @@ namespace engine { namespace rendering {
 	public:
 		SimpleRenderer();
 
-		void renderMesh(geometry::Mesh* mesh, graphics::Shader* shader);
+		void renderMesh(geometry::Mesh* mesh, graphics::Material* material);
 	
 		void prepareRender();
 	};
