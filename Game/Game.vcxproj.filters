@@ -44,6 +44,8 @@
     <ClCompile Include="src\graphics\materials\Material.cpp" />
     <ClCompile Include="src\graphics\materials\SimpleMaterial.cpp" />
     <ClCompile Include="src\graphics\Camera.cpp" />
+    <ClCompile Include="src\io\FileUtils.cpp" />
+    <ClCompile Include="src\io\InputManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\math\Math.h">
@@ -78,5 +80,10 @@
     <ClInclude Include="src\graphics\materials\Material.h" />
     <ClInclude Include="src\graphics\materials\SimpleMaterial.h" />
     <ClInclude Include="src\graphics\Camera.h" />
+    <ClInclude Include="src\io\FileUtils.h" />
+    <ClInclude Include="src\io\InputManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\Test.glsl" />
   </ItemGroup>
 </Project>

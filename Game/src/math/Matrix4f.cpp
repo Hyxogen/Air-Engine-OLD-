@@ -1,6 +1,5 @@
 #include "Matrix4f.h"
 
-
 namespace engine {
 	namespace math {
 

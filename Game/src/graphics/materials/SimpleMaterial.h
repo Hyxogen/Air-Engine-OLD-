@@ -16,7 +16,7 @@ namespace engine { namespace graphics {
 		SimpleMaterial(Shader* shader, Texture* texture);
 
 	public:
-		virtual void prepareShader(geometry::Mesh* mesh) = 0;
+		virtual void prepareShader(geometry::Mesh* mesh);
 
 	public:
 		inline Texture* getTexture() { return texture; }

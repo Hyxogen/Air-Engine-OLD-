@@ -125,6 +125,7 @@
     <ClCompile Include="src\graphics\Camera.cpp" />
     <ClCompile Include="src\graphics\materials\Material.cpp" />
     <ClCompile Include="src\graphics\materials\SimpleMaterial.cpp" />
+    <ClCompile Include="src\io\InputManager.cpp" />
     <ClCompile Include="src\math\Matrix4f.cpp" />
     <ClCompile Include="src\geometry\Mesh.cpp" />
     <ClCompile Include="src\graphics\shaders\Shader.cpp" />
@@ -134,6 +135,7 @@
     <ClCompile Include="src\math\Vector4f.cpp" />
     <ClCompile Include="src\graphics\Window.cpp" />
     <ClCompile Include="src\graphics\Texture.cpp" />
+    <ClCompile Include="src\io\FileUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\Camera.h" />
@@ -150,6 +152,11 @@
     <ClInclude Include="src\math\Vector3f.h" />
     <ClInclude Include="src\math\Vector4f.h" />
     <ClInclude Include="src\graphics\Window.h" />
+    <ClInclude Include="src\io\FileUtils.h" />
+    <ClInclude Include="src\io\InputManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\Test.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,2 +1,6 @@
-﻿  Vector2f.cpp
-g:\projects\c++\game\game\src\math\vector2f.cpp(4): fatal error C1189: #error:  Define the magnitude function
+﻿  InputManager.cpp
+  Window.cpp
+g:\projects\c++\game\game\src\graphics\window.cpp(49): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+  Generating Code...
+  Game.vcxproj -> G:\Projects\C++\Game\Debug\Game.exe
+  Game.vcxproj -> G:\Projects\C++\Game\Debug\Game.pdb (Partial PDB)

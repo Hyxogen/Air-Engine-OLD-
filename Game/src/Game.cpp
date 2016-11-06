@@ -2,12 +2,13 @@
 
 #include <FreeImage.h>
 #include <GL/glew.h>
+#include "graphics\materials\SimpleMaterial.h"
 #include "geometry\Mesh.h"
 #include "graphics\Window.h"
 #include "graphics\SimpleRenderer.h"
 #include "graphics\shaders\Shader.h"
 #include "math\Math.h"
-#include "graphics\materials\SimpleMaterial.h"
+#include "io\FileUtils.h"
 
 char* vertexShader = "#version 430 core\n" \
 "layout (location = 0) in vec3 vertexPosition;\n" \
@@ -30,8 +31,11 @@ int main() {
 	using namespace geometry;
 	using namespace rendering;
 	using namespace math;
+	using namespace utils;
 
-	Window window("Engine!", 650, 350);
+	Window* window = new Window("Engine!", 650, 350);
+
+	//readFile("res/shaders/SimpleVertexShader.txt");
 
 	glewInit();
 
@@ -54,17 +58,19 @@ int main() {
 	};
 
 	Shader* shader = new Shader(vertexShader, fragmentShader);
-	Texture* texture = new Texture(	"res/grass.jpg");
+	Texture* texture = new Texture(	"res/textures/grass.jpg");
 	Mesh* mesh = new Mesh(vertices, uvs, indices, texture);
 	SimpleRenderer* renderer = new SimpleRenderer();
 	SimpleMaterial* material = new SimpleMaterial(shader, texture);
 
 	shader->bind();
 
-	while (!window.shouldClose()) {
+	while (!window->shouldClose()) {
 		renderer->prepareRender();
 		renderer->renderMesh(mesh, material);
-		window.render();
+		
+		window->tick();
+		window->render();
 
 	}
 	shader->unBind();
@@ -73,5 +79,6 @@ int main() {
 	delete mesh;
 	delete renderer;
 	delete material;
+	delete window;
 	return 0;
 }
