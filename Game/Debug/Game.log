@@ -1,6 +1,11 @@
-﻿  InputManager.cpp
-  Window.cpp
-g:\projects\c++\game\game\src\graphics\window.cpp(49): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+﻿  Matrix4f.cpp
+g:\projects\c++\game\game\src\math\matrix4f.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+g:\projects\c++\game\game\src\math\matrix4f.cpp(75): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Game.cpp
+g:\projects\c++\game\game\src\math\matrix4f.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'G:\Projects\C++\Game\Debug\vc120.pdb'; linking object as if no debug info
   Game.vcxproj -> G:\Projects\C++\Game\Debug\Game.exe
   Game.vcxproj -> G:\Projects\C++\Game\Debug\Game.pdb (Partial PDB)

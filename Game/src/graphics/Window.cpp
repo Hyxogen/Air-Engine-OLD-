@@ -13,6 +13,8 @@ namespace engine { namespace graphics {
 				glfwTerminate();
 				return;
 			}
+			this->width = width;
+			this->height = height;
 			glfwSetErrorCallback(error_callback);
 
 			window = glfwCreateWindow(width, height, title, NULL, NULL);
@@ -44,6 +46,7 @@ namespace engine { namespace graphics {
 		void Window::render() {
 			glfwSwapBuffers(window);
 		}
+
 
 		bool Window::shouldClose() {
 			return glfwWindowShouldClose(window);

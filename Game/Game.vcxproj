@@ -136,6 +136,8 @@
     <ClCompile Include="src\graphics\Window.cpp" />
     <ClCompile Include="src\graphics\Texture.cpp" />
     <ClCompile Include="src\io\FileUtils.cpp" />
+    <ClCompile Include="src\util\OBJLoader.cpp" />
+    <ClCompile Include="src\util\StringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\Camera.h" />
@@ -154,9 +156,12 @@
     <ClInclude Include="src\graphics\Window.h" />
     <ClInclude Include="src\io\FileUtils.h" />
     <ClInclude Include="src\io\InputManager.h" />
+    <ClInclude Include="src\util\OBJLoader.h" />
+    <ClInclude Include="src\util\StringUtils.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\shaders\Test.glsl" />
+    <None Include="res\shaders\SimpleFragmentShader.glsl" />
+    <None Include="res\shaders\SimpleVertexShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

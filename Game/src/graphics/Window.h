@@ -8,7 +8,8 @@ namespace engine {
 	namespace graphics {
 
 		class Window {
-			GLFWwindow* window;
+			unsigned int width, height;
+			GLFWwindow* window;	
 			IO::InputManager* inputManager = nullptr;
 
 		public:
@@ -24,6 +25,8 @@ namespace engine {
 
 			inline GLFWwindow* getWindow() const { return window; }
 			inline IO::InputManager* getInputManager() const { return inputManager; }
+			inline unsigned int getWidth() const { return width; }
+			inline unsigned int getHeight() const { return height; }
 		};
 
 	}

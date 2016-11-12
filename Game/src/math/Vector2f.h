@@ -7,10 +7,12 @@ namespace engine {namespace math {
 	struct Vector2f {
 
 		union {
-			float x, y;
-			
 			struct {
 				float vectors[2];
+			};
+
+			struct {
+				float x, y;
 			};
 		};
 

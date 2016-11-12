@@ -13,7 +13,6 @@ namespace engine { namespace IO {
 	}
 	
 	void key_callback(GLFWwindow* windowptr, int key, int scancode, int action, int mods) {
-		std::cout << "KEY EVENT!!!!!!!!!" << std::endl;
 		if (key > MAX_KEYS) return;
 		using namespace graphics;
 		Window* window = (Window *)glfwGetWindowUserPointer(windowptr);
@@ -33,6 +32,7 @@ namespace engine { namespace IO {
 	}
 
 	void mouse_callback(GLFWwindow* windowptr, int button, int action, int mods) {
+		std::cout << "Mouse Event" << std::endl;
 		if (button > MAX_BUTTONS) return;
 		using namespace graphics;
 		Window* window = (Window *)glfwGetWindowUserPointer(windowptr);
@@ -52,8 +52,8 @@ namespace engine { namespace IO {
 	}
 
 	void InputManager::tick() {
-		//memset(this->keysPressed, 0, MAX_KEYS);
-		//memset(this->buttonsPressed, 0, MAX_BUTTONS);
+		memset(this->keysPressed, 0, MAX_KEYS);
+		memset(this->buttonsPressed, 0, MAX_BUTTONS);
 	}
 
 	bool InputManager::keyDown(unsigned int key) {

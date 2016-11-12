@@ -9,6 +9,7 @@
 #include "graphics\shaders\Shader.h"
 #include "math\Math.h"
 #include "io\FileUtils.h"
+#include "util\OBJLoader.h"
 
 char* vertexShader = "#version 430 core\n" \
 "layout (location = 0) in vec3 vertexPosition;\n" \
@@ -31,13 +32,19 @@ int main() {
 	using namespace geometry;
 	using namespace rendering;
 	using namespace math;
-	using namespace utils;
+	using namespace IO;
+	using namespace utility;
 
 	Window* window = new Window("Engine!", 650, 350);
-
-	//readFile("res/shaders/SimpleVertexShader.txt");
-
 	glewInit();
+
+	//readFile("res/TestModel.obj");
+
+	int i = 0;
+
+
+	//readFileLines("res/TestModel.obj");
+
 
 	std::vector<GLfloat> vertices = {
 		-0.5f, 0.5f, 0.0f,
@@ -57,21 +64,36 @@ int main() {
 			0, 1, 2, 2, 3, 0
 	};
 
+	char* vertexShader = readFile("res/shaders/SimpleVertexShader.glsl");
+	char* fragmentShader = readFile("res/shaders/SimpleFragmentShader.glsl");
+
 	Shader* shader = new Shader(vertexShader, fragmentShader);
 	Texture* texture = new Texture(	"res/textures/grass.jpg");
-	Mesh* mesh = new Mesh(vertices, uvs, indices, texture);
+	Mesh* mesh = loadOBJModel("res/TestModel.obj");
 	SimpleRenderer* renderer = new SimpleRenderer();
 	SimpleMaterial* material = new SimpleMaterial(shader, texture);
+	Matrix4f projection = Matrix4f::perspective((float)window->getWidth() / (float)window->getHeight(), 90.0f, 0.1f, 1000.0f);
+
+	float y = 0;
+
+	Matrix4f translation = Matrix4f::translation(Vector3f(0.0f, 0.0f, -5.0f));
+
+	//Matrix4f transform = Matrix4f::transformation(Matrix4f::identity(), Matrix4f::identity(), Matrix4f::translation(Vector3f(0.0f, 0.0f, -2.0f)));
 
 	shader->bind();
 
 	while (!window->shouldClose()) {
+		y += 12.5f;
 		renderer->prepareRender();
-		renderer->renderMesh(mesh, material);
-		
-		window->tick();
-		window->render();
+		shader->loadUniformMat4f("projection", projection);
+		Matrix4f rotation = Matrix4f::rotation(Vector3f(0.0f, 1.0f, 0.0f), y);
 
+		shader->loadUniformMat4f("transform", Matrix4f::transformation(rotation, Matrix4f::identity(), translation));
+		renderer->renderMesh(mesh, material);
+
+		window->tick();
+		if (window->getInputManager()->keyPressed(GLFW_KEY_ESCAPE)) break;
+		window->render();
 	}
 	shader->unBind();
 	delete shader;
@@ -80,5 +102,7 @@ int main() {
 	delete renderer;
 	delete material;
 	delete window;
+	delete vertexShader;
+	delete fragmentShader;
 	return 0;
 }

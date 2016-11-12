@@ -3,9 +3,8 @@
 namespace engine {
 	namespace geometry {
 
-		Mesh::Mesh(std::vector<GLfloat>& vertices, std::vector<GLfloat> uvs, 
-			std::vector<GLuint>& indices,graphics::Texture* texture) {
-			this->texture = texture;
+		Mesh::Mesh(std::vector<GLfloat>& vertices, std::vector<GLfloat>& uvs, 
+			std::vector<GLuint>& indices) {
 			this->vertexCount = vertices.size() / 3;
 			this->indicesCount = indices.size();
 			glGenVertexArrays(1, &vaoID);
