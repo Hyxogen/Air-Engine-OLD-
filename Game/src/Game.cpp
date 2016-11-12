@@ -11,21 +11,6 @@
 #include "io\FileUtils.h"
 #include "util\OBJLoader.h"
 
-char* vertexShader = "#version 430 core\n" \
-"layout (location = 0) in vec3 vertexPosition;\n" \
-"layout (location = 1) in vec2 vertexUV; \n" \
-"out vec2 uv; \n" \
-"uniform mat4 projection;" \
-"uniform mat4 transform;" \
-"void main() {\n" \
-"gl_Position = vec4(vertexPosition, 1.0);\n" \
-" uv = vertexUV; }";
-char* fragmentShader = "#version 430 core \n " \
-" in vec2 uv; \n" \
-" out vec4 outputColor; \n "\
-" uniform sampler2D textureSampler;\n" \
-" void main() {outputColor = texture(textureSampler, uv);}";
-
 int main() {
 	using namespace engine;
 	using namespace graphics;
