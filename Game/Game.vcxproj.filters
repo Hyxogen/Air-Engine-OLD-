@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{41d67a17-aa1d-4fdc-a234-257b1503ee49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\graphics">
+      <UniqueIdentifier>{88cb3a05-b770-4024-a077-d60f334656e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\geometry">
+      <UniqueIdentifier>{b85bcb17-359f-4d8b-a132-02d261cb71f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\math">
+      <UniqueIdentifier>{07124d14-4bd7-4763-be97-c15611544995}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\math\Matrix4f.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\Vector3f.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\Vector4f.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\geometry\Mesh.cpp">
+      <Filter>src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\SimpleRenderer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\Window.cpp">
+      <Filter>src\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\shaders\Shader.cpp">
+      <Filter>src\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\Vector2f.cpp" />
+    <ClCompile Include="src\graphics\Texture.cpp" />
+    <ClCompile Include="src\graphics\materials\Material.cpp" />
+    <ClCompile Include="src\graphics\materials\SimpleMaterial.cpp" />
+    <ClCompile Include="src\graphics\Camera.cpp" />
+    <ClCompile Include="src\io\FileUtils.cpp" />
+    <ClCompile Include="src\io\InputManager.cpp" />
+    <ClCompile Include="src\util\OBJLoader.cpp" />
+    <ClCompile Include="src\util\StringUtils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\math\Math.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\Mathf.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\Matrix4f.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\Vector3f.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\Vector4f.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\geometry\Mesh.h">
+      <Filter>src\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\SimpleRenderer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\Window.h">
+      <Filter>src\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\shaders\Shader.h">
+      <Filter>src\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\Vector2f.h" />
+    <ClInclude Include="src\graphics\Texture.h" />
+    <ClInclude Include="src\graphics\materials\Material.h" />
+    <ClInclude Include="src\graphics\materials\SimpleMaterial.h" />
+    <ClInclude Include="src\graphics\Camera.h" />
+    <ClInclude Include="src\io\FileUtils.h" />
+    <ClInclude Include="src\io\InputManager.h" />
+    <ClInclude Include="src\util\OBJLoader.h" />
+    <ClInclude Include="src\util\StringUtils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\SimpleVertexShader.glsl" />
+    <None Include="res\shaders\SimpleFragmentShader.glsl" />
+  </ItemGroup>
+</Project>
