@@ -29,7 +29,6 @@ namespace engine {
 		}
 #else
 		void SimpleRenderer::renderMesh(geometry::Mesh* mesh, graphics::Material* material) {
-			material->enable();
 			glBindVertexArray(mesh->getVaoID());
 
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh->getIboID());
@@ -43,7 +42,6 @@ namespace engine {
 			glDisableVertexAttribArray(0);
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 			glBindVertexArray(0);
-			material->disable();
 		}
 #endif
 

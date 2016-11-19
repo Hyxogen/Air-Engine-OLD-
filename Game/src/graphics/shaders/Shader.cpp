@@ -55,11 +55,12 @@ namespace engine {
 		}
 
 		void Shader::loadUniformMat4f(char* name, math::Matrix4f matrix) {
-			glUniformMatrix4fv(glGetUniformLocation(this->programID, name), 1, GL_FALSE, matrix.elements);
+			GLuint location = getUniformLocation(name);
+			glUniformMatrix4fv(location, 1, GL_FALSE, matrix.elements);
 		}
 
 		void Shader::loadUniformTexture(char* name, unsigned short bankID) {
-			glUniform1i(glGetUniformLocation(this->programID, name), bankID);
+			glUniform1i(getUniformLocation(name), bankID);
 		}
 
 		void Shader::bind() {
@@ -68,6 +69,13 @@ namespace engine {
 
 		void Shader::unBind() {
 			glUseProgram(0);
+		}
+
+		GLuint Shader::getUniformLocation(char* name) {
+			if (uniform_locations.find(name) == uniform_locations.end()) {
+				uniform_locations.emplace(name, glGetUniformLocation(this->programID, name));
+			}
+			return uniform_locations[name];
 		}
 	}
 }

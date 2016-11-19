@@ -1,0 +1,77 @@
+#version 430 core
+layout(location = 0) in vec3 vertexPosition;
+layout(location = 1) in vec2 vertexUV;
+
+out vec2 uv;
+
+uniform mat4 projection;
+uniform mat4 transform;
+
+void main() {
+	gl_Position = projection * transform * vec4(vertexPosition, 1.0);
+}
+#version 430 core
+in vec2 uv;
+
+out vec4 outputColor;
+
+uniform sampler2D textureSampler;
+
+void main() {
+	outputColor = texture(textureSampler, uv);
+}
+1
+1
+Bit per pixel 24
+0 Calculating current uv: 0.5, 0.0001
+3 Calculating current uv: 0.25, 0.25
+6 Calculating current uv: 0.25, 0.0001
+1 Calculating current uv: 0.5, 0.25
+4 Calculating current uv: 0.25, 0.5
+7 Calculating current uv: 0.25, 0.25
+2 Calculating current uv: 0.5, 0.5
+5 Calculating current uv: 0.25, 0.75
+8 Calculating current uv: 0.25, 0.5
+3 Calculating current uv: 0.75, 0.5
+6 Calculating current uv: 0.9999, 0.25
+9 Calculating current uv: 0.9999, 0.5
+4 Calculating current uv: 0.25, 0.5
+7 Calculating current uv: 0.0001, 0.25
+10 Calculating current uv: 0.25, 0.25
+5 Calculating current uv: 0.5, 0.25
+8 Calculating current uv: 0.75, 0.5
+11 Calculating current uv: 0.5, 0.5
+6 Calculating current uv: 0.5, 0.0001
+9 Calculating current uv: 0.5, 0.25
+12 Calculating current uv: 0.25, 0.25
+7 Calculating current uv: 0.5, 0.25
+10 Calculating current uv: 0.5, 0.5
+13 Calculating current uv: 0.25, 0.5
+8 Calculating current uv: 0.5, 0.5
+11 Calculating current uv: 0.5, 0.75
+14 Calculating current uv: 0.25, 0.75
+9 Calculating current uv: 0.75, 0.5
+12 Calculating current uv: 0.75, 0.25
+15 Calculating current uv: 0.9999, 0.25
+10 Calculating current uv: 0.25, 0.5
+13 Calculating current uv: 0.0001, 0.5
+16 Calculating current uv: 0.0001, 0.25
+11 Calculating current uv: 0.5, 0.25
+14 Calculating current uv: 0.75, 0.25
+17 Calculating current uv: 0.75, 0.5
+0.0001
+0.75
+0.75
+0.75
+0.25
+0.75
+0.5
+0.75
+0.0001
+0.5
+0.75
+0.5
+0.25
+0.5
+0.5
+0.5

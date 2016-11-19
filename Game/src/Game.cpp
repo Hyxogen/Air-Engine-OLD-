@@ -65,13 +65,18 @@ int main() {
 
 	//Matrix4f transform = Matrix4f::transformation(Matrix4f::identity(), Matrix4f::identity(), Matrix4f::translation(Vector3f(0.0f, 0.0f, -2.0f)));
 
-	shader->bind();
+	Matrix4f rotation = Matrix4f::identity();
 
 	while (!window->shouldClose()) {
-		y += 12.5f;
+		material->enable();
+		y += 1.0f;
 		renderer->prepareRender();
 		shader->loadUniformMat4f("projection", projection);
-		Matrix4f rotation = Matrix4f::rotation(Vector3f(0.0f, 1.0f, 0.0f), y);
+		rotation = Matrix4f::rotation(Vector3f(0.0f, 1.0f, 0.0f), y);
+
+		rotation = rotation * Matrix4f::rotation(Vector3f(1.0f, 0.0f, 0.0f), y);
+		rotation = rotation * Matrix4f::rotation(Vector3f(0.0f, 0.0f, 1.0f), y);
+
 
 		shader->loadUniformMat4f("transform", Matrix4f::transformation(rotation, Matrix4f::identity(), translation));
 		renderer->renderMesh(mesh, material);
@@ -79,6 +84,7 @@ int main() {
 		window->tick();
 		if (window->getInputManager()->keyPressed(GLFW_KEY_ESCAPE)) break;
 		window->render();
+		material->disable();
 	}
 	shader->unBind();
 	delete shader;
