@@ -1,7 +1,0 @@
-﻿  OBJLoader.cpp
-g:\projects\c++\game\game\src\math\matrix4f.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-g:\projects\c++\game\game\src\util\objloader.cpp(18): warning C4018: '<': signed/unsigned mismatch
-g:\projects\c++\game\game\src\util\objloader.cpp(49): warning C4018: '<': signed/unsigned mismatch
-g:\projects\c++\game\game\src\util\objloader.cpp(71): warning C4018: '<': signed/unsigned mismatch
-  Game.vcxproj -> G:\Projects\C++\Game\Debug\Game.exe
-  Game.vcxproj -> G:\Projects\C++\Game\Debug\Game.pdb (Partial PDB)
