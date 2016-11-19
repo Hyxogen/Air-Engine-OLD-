@@ -315,3 +315,4 @@ __pycache__/
 build/
 
 *.cs
+*.csproj
