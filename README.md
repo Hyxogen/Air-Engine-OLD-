@@ -17,3 +17,10 @@ I'm very sorry but at this time I do not have a release yet you can download the
 
 ##License
 There is no license for this engine you may use it for personal or comercial use.
+
+##Credits
+I want to thank these people so much for helping me on this engine:
+- raresica1234 He helped me alot with bugs that I could not find out. And thought me the good ways of programming in C++.
+- magetzub He explained to me features from C++ in depth and how C++ works And thought me the good ways of programming in C++.
+- eatplayhate He explained to me features from C++ in depth and how C++ works
+- [TheCherno](https://www.youtube.com/user/TheChernoProject/). He thought me the language C++
