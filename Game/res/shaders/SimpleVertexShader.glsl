@@ -9,4 +9,5 @@ uniform mat4 transform;
 
 void main() {
 	gl_Position = projection * transform * vec4(vertexPosition, 1.0);
+	uv = vertexUV;
 }

@@ -53,11 +53,12 @@ int main() {
 	char* fragmentShader = readFile("res/shaders/SimpleFragmentShader.glsl");
 
 	Shader* shader = new Shader(vertexShader, fragmentShader);
-	Texture* texture = new Texture(	"res/textures/grass.jpg");
-	Mesh* mesh = loadOBJModel("res/TestModel.obj");
+	Texture* texture = new Texture(	"res/textures/stallTexture.jpg");
+	Mesh* mesh = loadOBJModel("res/stall.obj");
 	SimpleRenderer* renderer = new SimpleRenderer();
 	SimpleMaterial* material = new SimpleMaterial(shader, texture);
 	Matrix4f projection = Matrix4f::perspective((float)window->getWidth() / (float)window->getHeight(), 90.0f, 0.1f, 1000.0f);
+
 
 	float y = 0;
 

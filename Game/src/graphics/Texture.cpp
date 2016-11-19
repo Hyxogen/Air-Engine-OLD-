@@ -3,9 +3,9 @@
 
 namespace engine { namespace graphics {
 
-	Texture::Texture() {
-		printf("It is discouraged to use this constructor");
-	}
+		Texture::Texture() {
+			printf("It is discouraged to use this constructor");
+		}
 
 		Texture::Texture(char* path) {
 			FREE_IMAGE_FORMAT format = FreeImage_GetFileType(path);
@@ -31,12 +31,20 @@ namespace engine { namespace graphics {
 			memcpy(result, pixels, size);
 
 			FreeImage_Unload(bitMap);
-
+			
 			glGenTextures(1, &textureID);
 			glBindTexture(GL_TEXTURE_2D, textureID);
 
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, (bpp / 8 == GL_BGR) ? GL_BGR : GL_RGB, GL_UNSIGNED_BYTE, result);
+			switch (bpp) {
+			case 24:
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, result);
+				break;
+			case 32:
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_BGRA, GL_UNSIGNED_BYTE, result);
+				break;
+			}
 
+			
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
@@ -46,9 +54,10 @@ namespace engine { namespace graphics {
 
 		}
 
-	Texture::~Texture() {
-		glDeleteTextures(1, &textureID);
-		//delete data;
-	}
+		Texture::~Texture() {
+			glDeleteTextures(1, &textureID);
+			//delete data;
+		}
 
-}}
+	}
+}
