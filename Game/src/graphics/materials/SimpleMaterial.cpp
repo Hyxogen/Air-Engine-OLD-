@@ -13,7 +13,6 @@ namespace engine { namespace graphics {
 	void SimpleMaterial::prepareShader(geometry::Mesh* mesh) {
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, this->texture->getTextureID());
-
 		this->shader->loadUniformTexture("textureSampler", 0);
 	}
 

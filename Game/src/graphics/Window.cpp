@@ -30,12 +30,15 @@ namespace engine { namespace graphics {
 			glfwSetWindowUserPointer(window, this);
 
 			this->inputManager = new IO::InputManager(window);
+			glEnable(GL_DEPTH_TEST);
+		
 		}
 
 		Window::~Window() {
 			delete inputManager;
 			glfwTerminate();
 			glfwDestroyWindow(window);
+			glDisable(GL_DEPTH_TEST);
 		}
 
 		void Window::tick() {

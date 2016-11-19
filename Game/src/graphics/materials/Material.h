@@ -14,6 +14,8 @@ namespace engine { namespace graphics {
 
 
 	public:
+		inline Shader* getShader() { return shader; }
+
 		virtual void Material::prepareShader(geometry::Mesh* mesh);
 		
 		void enable();

@@ -8,6 +8,12 @@ namespace engine { namespace graphics {
 		}
 
 		Texture::Texture(char* path) {
+			if (!exists(path)) {
+#if DEBUG
+				std::cout << "!!!!!!!!!! FILE " << path << " DOES NOT EXIST !!!!!!!!!!" << std::endl;
+				system("PAUSE");
+#endif
+			}
 			FREE_IMAGE_FORMAT format = FreeImage_GetFileType(path);
 			if (format == FIF_UNKNOWN)
 				format = FreeImage_GetFIFFromFilename(path);
@@ -35,6 +41,11 @@ namespace engine { namespace graphics {
 			glGenTextures(1, &textureID);
 			glBindTexture(GL_TEXTURE_2D, textureID);
 
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
+
 			switch (bpp) {
 			case 24:
 				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, result);
@@ -45,11 +56,6 @@ namespace engine { namespace graphics {
 			}
 
 			
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
-
 			glBindTexture(GL_TEXTURE_2D, 0);
 
 		}

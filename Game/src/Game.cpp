@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include <FreeImage.h>
+#include <FreeImage.h>  
 #include <GL/glew.h>
 #include "graphics\materials\SimpleMaterial.h"
 #include "geometry\Mesh.h"
@@ -53,7 +53,7 @@ int main() {
 	char* fragmentShader = readFile("res/shaders/SimpleFragmentShader.glsl");
 
 	Shader* shader = new Shader(vertexShader, fragmentShader);
-	Texture* texture = new Texture(	"res/textures/stallTexture.jpg");
+	Texture* texture = new Texture(	"res/stallTexture.png");
 	Mesh* mesh = loadOBJModel("res/stall.obj");
 	SimpleRenderer* renderer = new SimpleRenderer();
 	SimpleMaterial* material = new SimpleMaterial(shader, texture);
@@ -72,14 +72,14 @@ int main() {
 		material->enable();
 		y += 1.0f;
 		renderer->prepareRender();
-		shader->loadUniformMat4f("projection", projection);
+		material->getShader()->loadUniformMat4f("projection", projection);
 		rotation = Matrix4f::rotation(Vector3f(0.0f, 1.0f, 0.0f), y);
 
 		rotation = rotation * Matrix4f::rotation(Vector3f(1.0f, 0.0f, 0.0f), y);
-		rotation = rotation * Matrix4f::rotation(Vector3f(0.0f, 0.0f, 1.0f), y);
+//		rotation = rotation * Matrix4f::rotation(Vector3f(0.0f, 0.0f, 1.0f), y);
 
 
-		shader->loadUniformMat4f("transform", Matrix4f::transformation(rotation, Matrix4f::identity(), translation));
+		material->getShader()->loadUniformMat4f("transform", Matrix4f::transformation(rotation, Matrix4f::identity(), translation));
 		renderer->renderMesh(mesh, material);
 
 		window->tick();
@@ -87,7 +87,6 @@ int main() {
 		window->render();
 		material->disable();
 	}
-	shader->unBind();
 	delete shader;
 	delete texture;
 	delete mesh;
