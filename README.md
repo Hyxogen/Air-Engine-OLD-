@@ -1,0 +1,19 @@
+# Air-Engine
+This is an game engine that I am making for 3D game development.Now it only has a few basic features but I have a lot of planned features for this engine! Seek the issues tab or the project tab for my current goals.
+
+##Why the engine
+I love programming and making games and wanted to get rid of premade engines and make one myself that I can use and anyone else who wants to use it.
+
+##Contribute
+If you want to contribute to this project feel free to! Just create a new branch for your feature and make a pull request for it.
+
+> **_The code must be yours and you must have all the rights for it!_**
+
+##Bugs/Features?
+If you find a bug in you can report it at the issues tab with the label _bug_ and I shall take a look at it. If you have an idea for this engine you can also pust it at the issues with the label _feature_.
+
+##Installation
+I'm very sorry but at this time I do not have a release yet you can download the full project to use it in it's current state. The master branch is the only branch you want since the others are full off bugs.
+
+##License
+There is no license for this engine you may use it for personal or comercial use.
