@@ -15,9 +15,6 @@ If you find a bug in you can report it at the issues tab with the label _bug_ an
 ##Installation
 I'm very sorry but at this time I do not have a release yet you can download the full project to use it in it's current state. The master branch is the only branch you want since the others are full off bugs.
 
-##License
-There is no license for this engine you may use it for personal or comercial use.
-
 ##Credits
 I want to thank these people so much for helping me on this engine:
 - raresica1234 He helped me alot with bugs that I could not find out. And thought me the good ways of programming in C++.
@@ -26,3 +23,6 @@ I want to thank these people so much for helping me on this engine:
 - [TheCherno](https://www.youtube.com/user/TheChernoProject/). He thought me the language C++
 
 These people are a amazing support and helped me out so much! A huge thanks to them!
+
+##License
+There is no license for this engine you may use it for personal or comercial use.
