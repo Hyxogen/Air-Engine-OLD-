@@ -1,5 +1,9 @@
 #include <iostream>
 
+#ifdef _WINDOWS_
+#    undef _WINDOWS_
+#endif
+#include <Windows.h>
 #include <FreeImage.h>  
 #include <GL/glew.h>
 #include "graphics\materials\SimpleMaterial.h"
@@ -10,7 +14,9 @@
 #include "math\Math.h"
 #include "io\FileUtils.h"
 #include "util\OBJLoader.h"
+#include "util\Timer.h"
 
+#ifdef OBSOLETE_LOOP
 int main() {
 	using namespace engine;
 	using namespace graphics;
@@ -68,7 +74,11 @@ int main() {
 
 	Matrix4f rotation = Matrix4f::identity();
 
+	Timer* timer = new Timer();
+	Timer* time = new Timer();
+	float t = 0;
 	while (!window->shouldClose()) {
+		timer->reset();
 		material->enable();
 		y += 1.0f;
 		renderer->prepareRender();
@@ -86,7 +96,12 @@ int main() {
 		if (window->getInputManager()->keyPressed(GLFW_KEY_ESCAPE)) break;
 		window->render();
 		material->disable();
+		if (time->elapsed() - t > 1.0f) {
+			t += 1.0f;
+			printf("Hello \n");
+		}
 	}
+	delete timer;
 	delete shader;
 	delete texture;
 	delete mesh;
@@ -96,4 +111,32 @@ int main() {
 	delete vertexShader;
 	delete fragmentShader;
 	return 0;
+}
+#endif
+
+int main() {
+	using namespace engine;
+	using namespace graphics;
+	using namespace geometry;
+	using namespace rendering;
+	using namespace math;
+	using namespace IO;
+	using namespace utility;
+
+
+	Window* window = new Window("Engine!", 650, 350);
+	window->addRenderCallback(render());
+	//glewInit();
+}
+
+void render() {
+
+}
+
+void tick() {
+
+}
+
+void close() {
+
 }
