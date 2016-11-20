@@ -16,6 +16,8 @@
 #include "util\OBJLoader.h"
 #include "util\Timer.h"
 
+void render();
+
 #ifdef OBSOLETE_LOOP
 int main() {
 	using namespace engine;
@@ -125,7 +127,8 @@ int main() {
 
 
 	Window* window = new Window("Engine!", 650, 350);
-	window->addRenderCallback(render());
+	window->addRenderCallback(render);
+	window->start();
 	//glewInit();
 }
 
