@@ -21,6 +21,7 @@ I want to thank these people so much for helping me on this engine:
 - magetzub He explained to me features from C++ in depth and how C++ works And thought me the good ways of programming in C++.
 - eatplayhate He explained to me features from C++ in depth and how C++ works
 - [TheCherno](https://www.youtube.com/user/TheChernoProject/). He thought me the language C++
+- theholyhorse He helped me alot with problems
 
 These people are a amazing support and helped me out so much! A huge thanks to them!
 
