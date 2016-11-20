@@ -1,4 +1,0 @@
-﻿  Window.cpp
-g:\projects\c++\game\game\src\graphics\window.cpp(54): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-  Game.vcxproj -> G:\Projects\C++\Game\Debug\Game.exe
-  Game.vcxproj -> G:\Projects\C++\Game\Debug\Game.pdb (Partial PDB)
