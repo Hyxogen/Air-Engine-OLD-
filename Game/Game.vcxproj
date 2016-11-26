@@ -141,6 +141,7 @@
     <ClCompile Include="src\util\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Entity.h" />
     <ClInclude Include="src\graphics\Camera.h" />
     <ClInclude Include="src\graphics\materials\Material.h" />
     <ClInclude Include="src\graphics\materials\SimpleMaterial.h" />

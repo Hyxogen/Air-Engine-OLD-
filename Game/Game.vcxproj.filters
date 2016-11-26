@@ -88,6 +88,7 @@
     <ClInclude Include="src\util\OBJLoader.h" />
     <ClInclude Include="src\util\StringUtils.h" />
     <ClInclude Include="src\util\Timer.h" />
+    <ClInclude Include="src\Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\SimpleVertexShader.glsl" />

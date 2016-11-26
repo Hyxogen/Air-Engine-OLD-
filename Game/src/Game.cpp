@@ -129,6 +129,7 @@ int main() {
 	Window* window = new Window("Engine!", 650, 350);
 	window->addRenderCallback(render);
 	window->start();
+	
 	//glewInit();
 }
 
