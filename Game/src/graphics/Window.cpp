@@ -64,7 +64,7 @@ namespace engine {
 					tick();
 					frames++;
 					delta -= 1.0f / fps_cap;
-					executeCallbacks(render_callbacks);
+					
 					render();
 				}
 
@@ -106,9 +106,11 @@ namespace engine {
 		void Window::tick() {
 			inputManager->tick();
 			glfwPollEvents();
+			executeCallbacks(update_callbacks);
 		}
 
 		void Window::render() {
+			executeCallbacks(render_callbacks);
 			glfwSwapBuffers(window);
 		}
 
