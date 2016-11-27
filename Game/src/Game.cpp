@@ -6,6 +6,7 @@
 #include <Windows.h>
 #include <FreeImage.h>  
 #include <GL/glew.h>
+#include "TestBehaviour.h"
 #include "graphics\materials\SimpleMaterial.h"
 #include "geometry\Mesh.h"
 #include "graphics\Window.h"
@@ -15,8 +16,14 @@
 #include "io\FileUtils.h"
 #include "util\OBJLoader.h"
 #include "util\Timer.h"
+#include "entity\Entity.h"
+#include "entity\EntityBehaviour.h"
+
 
 void render();
+
+void tick();
+
 
 #ifdef OBSOLETE_LOOP
 int main() {
@@ -124,21 +131,30 @@ int main() {
 	using namespace math;
 	using namespace IO;
 	using namespace utility;
+	using namespace entity;
 
-
+	engine::entity::Entity* entity = new engine::entity::Entity();
+	entity->addBehaviour(TestBehaviour());
 	Window* window = new Window("Engine!", 650, 350);
 	window->addRenderCallback(render);
-	window->start();
+	window->addUpdateCallback(tick);
+
 	
+	window->start();
+
+
+
 	//glewInit();
 }
 
 void render() {
 
+
 }
 
 void tick() {
-
+	engine::entity::Entity::tickEntities();
+	std::cout << "\n" << std::endl;
 }
 
 void close() {
