@@ -18,7 +18,6 @@ namespace engine { namespace graphics {
 	public:
 		virtual void prepareShader(geometry::Mesh* mesh);
 
-	public:
 		inline Texture* getTexture() { return texture; }
 	};
 
