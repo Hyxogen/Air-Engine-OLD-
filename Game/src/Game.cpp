@@ -18,8 +18,7 @@
 #include "util\Timer.h"
 #include "entity\Entity.h"
 #include "entity\EntityBehaviour.h"
-
-
+//
 void render();
 
 void tick();
@@ -154,7 +153,6 @@ void render() {
 
 void tick() {
 	engine::entity::Entity::tickEntities();
-	std::cout << "\n" << std::endl;
 }
 
 void close() {
