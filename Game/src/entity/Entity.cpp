@@ -23,13 +23,13 @@ namespace engine { namespace entity {
 	
 	void Entity::tick() {
 		for (int i = 0; i < this->behaviours->size(); i++) {
-			behaviours->at(i).tickBehaviour();
+			behaviours->at(i)->tickBehaviour();
 		}
 	}
 
 	void Entity::addBehaviour(EntityBehaviour& entityBehaviour) {
 		if (hasBehaviour(entityBehaviour)) return;
-		this->behaviours->push_back(entityBehaviour);
+		this->behaviours->push_back(&entityBehaviour);
 	}
 
 	void Entity::deleteBehaviour(EntityBehaviour entityBehaviour) {

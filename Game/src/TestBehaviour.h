@@ -6,7 +6,7 @@
 namespace engine {
 	namespace entity {
 
-		struct TestBehaviour : EntityBehaviour {
+		struct TestBehaviour : public EntityBehaviour {
 
 			virtual void tickBehaviour();
 

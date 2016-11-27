@@ -7,7 +7,7 @@ namespace engine { namespace entity {
 
 	class Entity {
 		static std::vector<Entity> entities;
-		std::vector<EntityBehaviour>* behaviours = new std::vector<EntityBehaviour>(0);
+		std::vector<EntityBehaviour*>* behaviours = new std::vector<EntityBehaviour*>(0);
 		
 	public:
 		math::Vector3f position, rotation, scale;
