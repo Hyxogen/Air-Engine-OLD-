@@ -1,5 +1,7 @@
 #include "Camera.h"
 
+#ifdef DEPRECATED_CAMERA
+#pragma message ("Warning this uses the deprecated 'entity' system!")
 namespace engine { namespace graphics {
 
 	Camera::Camera(math::Matrix4f projection) {
@@ -18,3 +20,4 @@ namespace engine { namespace graphics {
 	}
 
 }}
+#endif

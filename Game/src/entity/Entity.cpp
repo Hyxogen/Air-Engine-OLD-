@@ -4,10 +4,12 @@ namespace engine { namespace entity {
 
 	std::vector<Entity> Entity::entities;
 
-	Entity::Entity(math::Vector3f position, math::Vector3f rotation, math::Vector3f scale) {
+	Entity::Entity(math::Vector3f position, math::Vector3f rotation, math::Vector3f scale, geometry::Mesh* mesh, graphics::Material* material) {
 		this->position = position;
 		this->rotation = rotation;
 		this->scale = scale;
+		this->mesh = mesh;
+		this->material = material;
 		entities.push_back(*this);
 	}
 

@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="src\entity\Entity.h" />
     <ClInclude Include="src\entity\EntityBehaviour.h" />
+    <ClInclude Include="src\graphics\BatchRendererg.h" />
     <ClInclude Include="src\graphics\Camera.h" />
     <ClInclude Include="src\graphics\materials\Material.h" />
     <ClInclude Include="src\graphics\materials\SimpleMaterial.h" />

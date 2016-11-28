@@ -94,6 +94,7 @@
     <ClInclude Include="src\entity\Entity.h" />
     <ClInclude Include="src\entity\EntityBehaviour.h" />
     <ClInclude Include="src\TestBehaviour.h" />
+    <ClInclude Include="src\graphics\BatchRendererg.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\SimpleVertexShader.glsl" />
