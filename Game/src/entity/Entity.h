@@ -16,8 +16,7 @@ namespace engine { namespace entity {
 		math::Vector3f position, rotation, scale;
 		geometry::Mesh* mesh;
 		graphics::Material* material;
-		//TODO adding entity id?
-
+		
 		~Entity();
 
 		Entity(math::Vector3f position = math::Vector3f(), math::Vector3f rotation = math::Vector3f(), math::Vector3f scale = math::Vector3f(1.0f, 1.0f, 1.0f),
