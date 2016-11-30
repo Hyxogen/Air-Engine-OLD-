@@ -30,6 +30,8 @@ namespace engine { namespace entity {
 
 		void deleteBehaviour(EntityBehaviour entityBehaviour);
 
+		math::Matrix4f getTransformation();
+
 		bool hasBehaviour(EntityBehaviour entityBehaviour);
 
 	};

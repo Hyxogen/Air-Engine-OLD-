@@ -10,7 +10,7 @@ namespace engine { namespace rendering {
 
 	class BatchRenderer {
 
-		std::unordered_map<entity::Entity*, std::vector<math::Vector3f>> batch;
+		std::unordered_map<entity::Entity*, std::vector<math::Matrix4f>> batch;
 
 	public:
 		BatchRenderer();

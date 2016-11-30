@@ -51,4 +51,16 @@ namespace engine { namespace entity {
 		return false;
 	}
 
+	math::Matrix4f Entity::getTransformation() {
+		using namespace math;
+		Matrix4f translation = Matrix4f::translation(position);
+		Matrix4f scaleMatrix = Matrix4f::scale(scale);
+
+		Matrix4f xRotation = Matrix4f::rotation(Vector3f(1.0f, 0.0f, 0.0f), rotation.x);
+		Matrix4f xyRotation = xRotation * Matrix4f::rotation(Vector3f(0.0f, 1.0f, 0.0f), rotation.y);
+		Matrix4f fullRotation = xyRotation * Matrix4f::rotation(Vector3f(0.0f, 0.0f, 1.0f), rotation.z);
+
+		return Matrix4f::transformation(fullRotation, scaleMatrix, translation);
+	}
+
 }}

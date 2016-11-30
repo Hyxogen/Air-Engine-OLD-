@@ -1,5 +1,7 @@
 #include <iostream>
 
+#define DEPRECATED_USAGE
+
 #ifdef _WINDOWS_
 #    undef _WINDOWS_
 #endif
@@ -135,13 +137,14 @@ int main() {
 	engine::entity::Entity* entity = new engine::entity::Entity();
 	entity->addBehaviour(TestBehaviour());
 	Window* window = new Window("Engine!", 650, 350);
+
+
+	std::cout << "Size of Matrix4f " << sizeof(Matrix4f) << std::endl;
+
 	window->addRenderCallback(render);
 	window->addUpdateCallback(tick);
 
-	
 	window->start();
-
-
 
 	//glewInit();
 }
