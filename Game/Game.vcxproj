@@ -173,6 +173,8 @@
     <ClInclude Include="src\TestBehaviour.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\shaders\SimpleBatchFragmentShader.glsl" />
+    <None Include="res\shaders\SimpleBatchVertexShader.glsl" />
     <None Include="res\shaders\SimpleFragmentShader.glsl" />
     <None Include="res\shaders\SimpleVertexShader.glsl" />
   </ItemGroup>

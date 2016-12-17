@@ -6,6 +6,8 @@ namespace engine { namespace graphics {
 
 	Material::Material(Shader* shader) : id(count++){
 		this->shader = shader;
+		std::cout << "IS THIS EVEN BEING CALLED?" << std::endl;
+
 	}
 	
 	void Material::prepareShader(geometry::Mesh* mesh) {

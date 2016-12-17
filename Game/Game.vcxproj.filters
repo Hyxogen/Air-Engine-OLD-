@@ -100,5 +100,7 @@
   <ItemGroup>
     <None Include="res\shaders\SimpleVertexShader.glsl" />
     <None Include="res\shaders\SimpleFragmentShader.glsl" />
+    <None Include="res\shaders\SimpleBatchFragmentShader.glsl" />
+    <None Include="res\shaders\SimpleBatchVertexShader.glsl" />
   </ItemGroup>
 </Project>

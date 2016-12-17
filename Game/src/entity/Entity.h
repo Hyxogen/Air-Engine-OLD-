@@ -8,7 +8,7 @@
 namespace engine { namespace entity {
 
 	class Entity {
-		static std::vector<Entity> entities;
+		static std::vector<Entity*> entities;
 		std::vector<EntityBehaviour*>* behaviours = new std::vector<EntityBehaviour*>(0);
 		
 
@@ -34,6 +34,7 @@ namespace engine { namespace entity {
 
 		bool hasBehaviour(EntityBehaviour entityBehaviour);
 
+		static inline std::vector<Entity*> getEntities() { return entities; }
 	};
 
 }}

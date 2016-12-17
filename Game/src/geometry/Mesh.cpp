@@ -21,7 +21,7 @@ namespace engine {
 			glBindVertexArray(0);
 			glDeleteVertexArrays(1, &vaoID);
 
-			for (int i = 0; i < vbos.size(); i++)
+			for (unsigned int i = 0; i < vbos.size(); i++)
 				glDeleteBuffers(1, &vbos[i]);
 		}
 

@@ -13,7 +13,8 @@ namespace engine {
 
 		class Window {
 			unsigned int width, height;
-			float fps_cap = 60.0f, deltaTime = 0;
+			unsigned int fps_cap = 60;
+			float deltaTime = 0;
 			std::vector<WindowCallbackfun> render_callbacks, update_callbacks, close_callbacks;
 			GLFWwindow* window;
 			IO::InputManager* inputManager = nullptr;
@@ -37,7 +38,7 @@ namespace engine {
 
 			void start();
 
-			bool shouldClose();
+			int shouldClose();
 
 			inline GLFWwindow* getWindow() const { return window; }
 			inline IO::InputManager* getInputManager() const { return inputManager; }

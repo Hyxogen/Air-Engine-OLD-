@@ -20,7 +20,9 @@ namespace engine { namespace graphics {
 
 			void loadUniformMat4f(char* name, math::Matrix4f matrix);
 
-			void loadUnifromMat4fa(char* name, math::Matrix4f matrix[], unsigned int size = 0);
+			void loadUnifromMat4fa(char* name, math::Matrix4f matrices[], unsigned int size);
+
+			void loadUnifromMat4fa(char* name, std::vector<math::Matrix4f> matrices);
 
 			void loadUniformTexture(char* name, unsigned short bankIndex);
 

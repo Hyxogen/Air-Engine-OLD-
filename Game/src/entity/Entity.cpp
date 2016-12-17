@@ -2,7 +2,7 @@
 
 namespace engine { namespace entity {
 
-	std::vector<Entity> Entity::entities;
+	std::vector<Entity*> Entity::entities;
 
 	Entity::Entity(math::Vector3f position, math::Vector3f rotation, math::Vector3f scale, geometry::Mesh* mesh, graphics::Material* material) {
 		this->position = position;
@@ -10,7 +10,7 @@ namespace engine { namespace entity {
 		this->scale = scale;
 		this->mesh = mesh;
 		this->material = material;
-		entities.push_back(*this);
+		entities.push_back(this);
 	}
 
 	Entity::~Entity() {
@@ -18,13 +18,13 @@ namespace engine { namespace entity {
 	}
 
 	void Entity::tickEntities() {
-		for (int i = 0; i < entities.size(); i++) {
-			entities[i].tick();
+		for (unsigned int i = 0; i < entities.size(); i++) {
+			entities[i]->tick();
 		}
 	}
 	
 	void Entity::tick() {
-		for (int i = 0; i < this->behaviours->size(); i++) {
+		for (unsigned int i = 0; i < this->behaviours->size(); i++) {
 			behaviours->at(i)->tickBehaviour();
 		}
 	}
@@ -35,7 +35,7 @@ namespace engine { namespace entity {
 	}
 
 	void Entity::deleteBehaviour(EntityBehaviour entityBehaviour) {
-		for (int i = 0; i < behaviours->size(); i++) {
+		for (unsigned int i = 0; i < behaviours->size(); i++) {
 			if (typeid(behaviours[i]) == typeid(entityBehaviour)) {
 				behaviours->erase(behaviours->begin() + i);
 				return;
@@ -44,7 +44,7 @@ namespace engine { namespace entity {
 	}
 
 	bool Entity::hasBehaviour(EntityBehaviour entityBehaviour) {
-		for (int i = 0; i < behaviours->size(); i++) {
+		for (unsigned int i = 0; i < behaviours->size(); i++) {
 			if (typeid(behaviours[i]) == typeid(entityBehaviour)) 
 				return true;
 		}

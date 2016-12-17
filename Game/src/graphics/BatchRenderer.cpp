@@ -1,11 +1,12 @@
 #include "BatchRenderer.h"
 
+#define DEPRECATED_USAGE
+
 #define MAX_BATCH_SIZE 1563
 
 #ifndef DEPRECATED_USAGE
-#error The usage of the batchrenderer is discouraged. Since it has not been tested very well
-#endif // !DEPRECATED_USAGE
-
+#pragma message ("The usage of the batchrenderer is discouraged, since it has not been tested very well. If you still want to use it define DEPRECATED_USAGE")
+#else
 namespace engine { namespace rendering {
 
 	BatchRenderer::BatchRenderer() {
@@ -34,8 +35,11 @@ namespace engine { namespace rendering {
 
 	void BatchRenderer::flush() {
 		using namespace entity;
-		for (auto item = batch.begin(); item != batch.end; item++) {
+		for (auto item = batch.begin(); item != batch.end(); item++) {
 			Entity* entity = item->first;
+
+			entity->material->getShader()->loadUnifromMat4fa("transformations", item->second);
+
 			glBindVertexArray(entity->mesh->getVaoID());
 
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, entity->mesh->getIboID());
@@ -53,3 +57,4 @@ namespace engine { namespace rendering {
 	}
 
 }}
+#endif
