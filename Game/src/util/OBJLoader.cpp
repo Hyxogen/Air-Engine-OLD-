@@ -15,7 +15,7 @@ namespace engine { namespace utility {
 
 			int indexCount = 0;
 
-			for (int i = 0; i < lines.size(); i++) {
+			for (unsigned int i = 0; i < lines.size(); i++) {
 				std::vector<std::string> splitted_line = split(&lines[i], ' ');
 
 				if (splitted_line[0] == "v") {
@@ -46,7 +46,7 @@ namespace engine { namespace utility {
 
 			}
 
-			for (int i = 0; i < faces.size(); i++) {
+			for (unsigned int i = 0; i < faces.size(); i++) {
 				for (int a = 0; a < 9; a += 3) {
 					GLuint currentVertex = (std::stoi(faces[i][a]) - 1);
 					Vector2f currentUV = temp_uvs[std::stoi(faces[i][a + 1]) - 1];

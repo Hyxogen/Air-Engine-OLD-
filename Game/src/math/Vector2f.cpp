@@ -39,7 +39,7 @@ namespace engine { namespace math {
 	}
 
 	float Vector2f::magnitude() const{
-		return (sqrt((pow(this->x, 2.0f) + (pow(this->y, 2.0f)))));
+		return ((float) sqrt((pow(this->x, 2.0f) + (pow(this->y, 2.0f)))));
 	}
 
 	Vector2f Vector2f::invert() const {

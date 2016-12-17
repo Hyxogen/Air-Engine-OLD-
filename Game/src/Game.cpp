@@ -1,5 +1,7 @@
 #include <iostream>
 
+#define DEPRECATED_USAGE
+
 #ifdef _WINDOWS_
 #    undef _WINDOWS_
 #endif
@@ -18,11 +20,13 @@
 #include "util\Timer.h"
 #include "entity\Entity.h"
 #include "entity\EntityBehaviour.h"
-//
+
 void render();
 
 void tick();
 
+engine::rendering::SimpleRenderer* renderer = new engine::rendering::SimpleRenderer();
+engine::math::Matrix4f projection = engine::math::Matrix4f::perspective(650.0f / 350.0f, 90.0f, 0.1f, 1000.0f);
 
 #ifdef OBSOLETE_LOOP
 int main() {
@@ -69,8 +73,8 @@ int main() {
 	Shader* shader = new Shader(vertexShader, fragmentShader);
 	Texture* texture = new Texture(	"res/stallTexture.png");
 	Mesh* mesh = loadOBJModel("res/stall.obj");
-	SimpleRenderer* renderer = new SimpleRenderer();
 	SimpleMaterial* material = new SimpleMaterial(shader, texture);
+	SimpleRenderer* renderer = new SimpleRenderer();
 	Matrix4f projection = Matrix4f::perspective((float)window->getWidth() / (float)window->getHeight(), 90.0f, 0.1f, 1000.0f);
 
 
@@ -132,23 +136,51 @@ int main() {
 	using namespace utility;
 	using namespace entity;
 
-	engine::entity::Entity* entity = new engine::entity::Entity();
-	entity->addBehaviour(TestBehaviour());
 	Window* window = new Window("Engine!", 650, 350);
+	glewInit();
+
+	Shader* shader = new Shader(readFile("res/shaders/SimpleVertexShader.glsl"), readFile("res/shaders/SimpleFragmentShader.glsl"));
+	Texture* texture = new Texture("res/stallTexture.png");
+	Mesh* mesh = loadOBJModel("res/stall.obj");
+	SimpleMaterial* material = new SimpleMaterial(shader, texture);
+
+	engine::entity::Entity* entity = new engine::entity::Entity();
+	entity->mesh = mesh;
+	entity->material = material;
+	//TODO ADD MATERIAL AND MESH TO ENTITY ^
+	entity->addBehaviour(TestBehaviour());
+
+
+
+	std::cout << "Size of Matrix4f " << sizeof(Matrix4f) << std::endl;
+
 	window->addRenderCallback(render);
 	window->addUpdateCallback(tick);
 
-	
 	window->start();
 
-
-
+	delete renderer;
+	delete shader;
+	delete texture;
+	delete mesh;
+	delete material;
 	//glewInit();
 }
 
 void render() {
+	using namespace engine;
+	using namespace rendering;
+	using namespace entity;
 
+	Entity* entity = Entity::getEntities()[0];
+	entity->material->enable();
+	renderer->prepareRender();
 
+	entity->material->getShader()->loadUniformMat4f("projection", projection);
+	entity->material->getShader()->loadUniformMat4f("transform", math::Matrix4f::translation(math::Vector3f(0.0f, 0.0f, -10.0f)));
+
+	renderer->renderMesh(entity->mesh, entity->material);
+	entity->material->disable();
 }
 
 void tick() {

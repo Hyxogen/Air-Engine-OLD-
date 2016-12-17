@@ -1,5 +1,8 @@
 #pragma once
 
+#ifdef DEPRECATED_CAMERA
+#pragma message ("This is the deprecated 'entity' component system and is most likley to not be supported and to be deleted!")
+
 #include "../math/Math.h"
 
 namespace engine { namespace graphics {
@@ -17,3 +20,4 @@ namespace engine { namespace graphics {
 	};
 
 }}
+#endif

@@ -69,7 +69,7 @@ namespace engine {
 				}
 
 				if (timer->elapsed() - time >= 1.0f) {
-					time += 1.0f;
+					time += 1;
 
 					printf("FPS %i\n", frames);
 					frames = 0;
@@ -86,7 +86,7 @@ namespace engine {
 		}
 
 		void Window::executeCallbacks(std::vector<WindowCallbackfun> callbacks) {
-			for (int i = 0; i < callbacks.size(); i++) {
+			for (unsigned int i = 0; i < callbacks.size(); i++) {
 				callbacks[i]();
 			}
 		}
@@ -115,7 +115,7 @@ namespace engine {
 		}
 
 
-		bool Window::shouldClose() {
+		int Window::shouldClose() {
 			return glfwWindowShouldClose(window);
 		}
 	}

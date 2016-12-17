@@ -1,5 +1,6 @@
 #include "Camera.h"
 
+#ifdef DEPRECATED_CAMERA
 namespace engine { namespace graphics {
 
 	Camera::Camera(math::Matrix4f projection) {
@@ -18,3 +19,4 @@ namespace engine { namespace graphics {
 	}
 
 }}
+#endif

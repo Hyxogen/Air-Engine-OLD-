@@ -6,7 +6,7 @@ namespace engine { namespace utility {
 		QueryPerformanceCounter(&start);
 		LARGE_INTEGER frequency;
 		QueryPerformanceFrequency(&frequency);
-		this->frequency = frequency.QuadPart;
+		this->frequency = (float) frequency.QuadPart;
 	}
 
 	void Timer::reset() {

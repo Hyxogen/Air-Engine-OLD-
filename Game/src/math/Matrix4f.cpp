@@ -72,7 +72,7 @@ namespace engine {
 
 		Matrix4f Matrix4f::rotation(const Vector3f& axis, float angle) {
 			Matrix4f out(1.0f);
-			float rad = DegToRad(angle);
+			float rad = (float) DegToRad(angle);
 			float c = cos(rad);
 			float s = sin(rad);
 			float omc = 1 - c;

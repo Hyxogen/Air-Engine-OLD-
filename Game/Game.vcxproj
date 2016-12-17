@@ -127,6 +127,7 @@
     <ClCompile Include="src\entity\EnityBehaviour.cpp" />
     <ClCompile Include="src\entity\Entity.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\graphics\BatchRenderer.cpp" />
     <ClCompile Include="src\graphics\Camera.cpp" />
     <ClCompile Include="src\graphics\materials\Material.cpp" />
     <ClCompile Include="src\graphics\materials\SimpleMaterial.cpp" />
@@ -149,6 +150,7 @@
   <ItemGroup>
     <ClInclude Include="src\entity\Entity.h" />
     <ClInclude Include="src\entity\EntityBehaviour.h" />
+    <ClInclude Include="src\graphics\BatchRenderer.h" />
     <ClInclude Include="src\graphics\Camera.h" />
     <ClInclude Include="src\graphics\materials\Material.h" />
     <ClInclude Include="src\graphics\materials\SimpleMaterial.h" />
@@ -171,6 +173,8 @@
     <ClInclude Include="src\TestBehaviour.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\shaders\SimpleBatchFragmentShader.glsl" />
+    <None Include="res\shaders\SimpleBatchVertexShader.glsl" />
     <None Include="res\shaders\SimpleFragmentShader.glsl" />
     <None Include="res\shaders\SimpleVertexShader.glsl" />
   </ItemGroup>

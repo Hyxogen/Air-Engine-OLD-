@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Mathf.h"
-#include "Vector3f.h";
+#include "Vector3f.h"
 
 namespace engine { namespace math {
 

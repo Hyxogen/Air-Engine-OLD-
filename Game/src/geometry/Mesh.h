@@ -8,7 +8,6 @@
 namespace engine { namespace geometry {
 
 	class Mesh {
-		
 		unsigned int vertexCount, indicesCount;
 
 		//TODO: Create material class that contains the texture

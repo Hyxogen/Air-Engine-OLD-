@@ -52,6 +52,7 @@
     <ClCompile Include="src\entity\Entity.cpp" />
     <ClCompile Include="src\entity\EnityBehaviour.cpp" />
     <ClCompile Include="src\TestBehaviour.cpp" />
+    <ClCompile Include="src\graphics\BatchRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\math\Math.h">
@@ -94,9 +95,12 @@
     <ClInclude Include="src\entity\Entity.h" />
     <ClInclude Include="src\entity\EntityBehaviour.h" />
     <ClInclude Include="src\TestBehaviour.h" />
+    <ClInclude Include="src\graphics\BatchRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\SimpleVertexShader.glsl" />
     <None Include="res\shaders\SimpleFragmentShader.glsl" />
+    <None Include="res\shaders\SimpleBatchFragmentShader.glsl" />
+    <None Include="res\shaders\SimpleBatchVertexShader.glsl" />
   </ItemGroup>
 </Project>

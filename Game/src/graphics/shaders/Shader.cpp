@@ -59,6 +59,22 @@ namespace engine {
 			glUniformMatrix4fv(location, 1, GL_FALSE, matrix.elements);
 		}
 
+		void Shader::loadUnifromMat4fa(char* name, math::Matrix4f matrices[], unsigned int size) {
+			for (unsigned int i = 0; i < size; i++) {
+				std::string strname(name);
+				GLuint location = getUniformLocation((char*) (strname + std::string("[") + std::string("" + i) + std::string("]")).c_str());
+				glUniformMatrix4fv(location, 1, GL_FALSE, matrices[i].elements);
+			}
+		}
+
+		void Shader::loadUnifromMat4fa(char* name, std::vector<math::Matrix4f> matrices) {
+			for (unsigned int i = 0; i < matrices.size(); i++) {
+				std::string strname(name);
+				GLuint location = getUniformLocation((char*)(strname + std::string("[") + std::string("" + i) + std::string("]")).c_str());
+				glUniformMatrix4fv(location, 1, GL_FALSE, matrices[i].elements);
+			}
+		}
+
 		void Shader::loadUniformTexture(char* name, unsigned short bankID) {
 			glUniform1i(getUniformLocation(name), bankID);
 		}

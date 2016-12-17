@@ -5,22 +5,24 @@
 
 namespace engine { namespace graphics {
 
-	class Material {
+		class Material {
 
-	 protected:
-		Shader* shader;
+		protected:
+			static unsigned int count;
+			const unsigned int id = 0;
+			Shader* shader;
 
-		Material(Shader* shader);
+			Material(Shader* shader);
+		public:
+			virtual void Material::prepareShader(geometry::Mesh* mesh);
 
+			void enable();
 
-	public:
-		inline Shader* getShader() { return shader; }
+			void disable();
 
-		virtual void Material::prepareShader(geometry::Mesh* mesh);
-		
-		void enable();
+			inline int getID() const { return id; }
 
-		void disable();
-	};
+			inline Shader* getShader() const { return shader; }
+		};
 
 }}
